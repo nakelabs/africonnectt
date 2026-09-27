@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base Reset ────────────────────────────────────────── */
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 16px;
+    background-color: #FCFCFC;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #FCFCFC;
+    color: #1A1A1A;
+    min-height: 100dvh;
+    overscroll-behavior: none;
+  }
+
+  #root {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hide-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ── Design System Components ──────────────────────────── */
+@layer components {
+
+  /* Card */
+  .card {
+    @apply bg-white border border-[#E5E7EB] rounded-2xl;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  }
+  .card-hover {
+    @apply transition-shadow duration-200 hover:shadow-md;
+  }
+
+  /* Chip / filter pill */
+  .chip {
+    @apply inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium border border-[#E5E7EB] bg-white text-[#6B7280] cursor-pointer select-none transition-all duration-150 whitespace-nowrap;
+  }
+  .chip-active {
+    @apply bg-[#1A1A1A] text-white border-[#1A1A1A];
+  }
+
+  /* Inputs */
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl border border-[#E5E7EB] bg-[#F9FAFB] text-[#1A1A1A] placeholder-[#9CA3AF] text-sm focus:outline-none focus:border-[#1A1A1A] transition-all duration-200;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white bg-[#1A1A1A] transition-all duration-200 active:scale-95 hover:bg-[#2D2D2D];
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold border border-[#E5E7EB] text-[#1A1A1A] bg-white transition-all duration-200 active:scale-95 hover:border-[#1A1A1A];
+  }
+  .btn-black {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-white bg-[#1A1A1A] transition-all duration-200 active:scale-95 hover:bg-[#333];
+  }
+
+  /* Section label */
+  .section-label {
+    @apply text-xs font-semibold uppercase tracking-widest text-[#9CA3AF];
+  }
+
+  /* Divider */
+  .divider {
+    @apply border-t border-[#E5E7EB];
+  }
+
+  /* Tag / badge */
+  .tag {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-semibold border border-[#E5E7EB] bg-[#F9FAFB] text-[#6B7280];
+  }
+  .tag-dark {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-[#1A1A1A] text-white;
+  }
+}
+
+/* ── Utilities ─────────────────────────────────────────── */
+@layer utilities {
+  .pb-safe {
+    padding-bottom: max(1.25rem, env(safe-area-inset-bottom));
+  }
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+  .text-muted {
+    color: #6B7280;
+  }
+  .text-subtle {
+    color: #9CA3AF;
+  }
+}
